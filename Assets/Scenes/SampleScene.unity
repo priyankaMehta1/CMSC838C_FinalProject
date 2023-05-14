@@ -246,7 +246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: eff0c32eda7392144af09bed48ee93c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6
+      value: 1.6026
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: eff0c32eda7392144af09bed48ee93c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -627,6 +627,7 @@ GameObject:
   - component: {fileID: 804084438}
   - component: {fileID: 804084437}
   - component: {fileID: 804084436}
+  - component: {fileID: 804084439}
   m_Layer: 0
   m_Name: YolkParticles
   m_TagString: Untagged
@@ -5428,6 +5429,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &804084439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804084435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67603d509b05409f89cd13eecba83ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -6064,7 +6077,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 0.15686275}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -6708,7 +6721,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2000
+      scalar: 1000
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -7147,7 +7160,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 0.95441294, b: 0, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -9459,7 +9472,7 @@ ParticleSystem:
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
-    multiplyColliderForceByParticleSpeed: 0
+    multiplyColliderForceByParticleSpeed: 1
     multiplyColliderForceByCollisionAngle: 1
     m_Planes: []
     m_Dampen:
