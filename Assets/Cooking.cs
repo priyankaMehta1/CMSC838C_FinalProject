@@ -42,7 +42,6 @@ public class Cooking : MonoBehaviour
 
     void GetButtonPress()
     {
-        //if the button is pressed, continue drawing rays at teleportation locations
         bool isPressed = OVRInput.Get(OVRInput.RawButton.X);
         if(isPressed){
             cooking = true;

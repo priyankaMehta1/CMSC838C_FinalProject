@@ -7,35 +7,73 @@ public class ControllerScript : MonoBehaviour
 {
     private GameObject grabbedObject;
 
+    public ParticleSystem eggWhite;
+    public ParticleSystem eggYolk;
+
+    private float startTime;
+    private float timeRn;
+
+    private float albedo;
+    private float yolk_color;
+
+    private bool cooking;
+
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    void Update()
-    {
-
+        cooking = false;
     }
 
     void FixedUpdate()
     {
         //To grab GrabbableObjects in a radius
         GetTriggerPress();
+        if(!cooking){
+            GetXPress();
+        } else {
+            UpdateEgg();
+        }
     }
 
     Vector3 GetPointingDir()
     {
         Vector3 worldDir = transform.forward;
-
         return worldDir;
     }
 
     Vector3 GetPosition()
     {
         Vector3 worldPos = transform.position;
- 
         return worldPos;
+    }
+
+    void UpdateEgg()
+    {
+        timeRn = Time.time - startTime;
+        albedo = (timeRn*5 + 20)/255;
+
+        if(albedo < 0.75){
+            yolk_color = (timeRn*3 + 190)/255;
+            if(yolk_color < 1){
+                eggYolk.GetComponent<Renderer>().material.color = new Color(1, yolk_color, 0, albedo);
+            }
+            eggWhite.GetComponent<Renderer>().material.color = new Color(1, 1, 1, albedo-0.2f);
+        }
+    }
+
+    void GetXPress()
+    {
+        bool isPressed = OVRInput.GetDown(OVRInput.RawButton.X);
+        if(isPressed){
+            StartEgg();
+        }
+    }
+
+    void StartEgg()
+    {
+        startTime = Time.time;
+        eggWhite.Play();
+        eggYolk.Play();
     }
 
     void GetTriggerPress()
